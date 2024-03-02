@@ -1,0 +1,6 @@
+ID,Device_type,Device_brand,Device_model,Video,WiFi,2.4GHz,5GHz,Security_Protocol,Privacy_Shutter,Encryption,Device_is_secure,Device_info_link,Comments
+1,babymonitor,BOTSLAB,Camc221,TRUE,TRUE,TRUE,TRUE,WEP,TRUE,N/A,YES,https://global.botslab.com/products/botslab-indoor-cam-2-pro,No reported issues
+2,babymonitor,‎Owlet,Cam 1,TRUE,TRUE,TRUE,FALSE,TLS,FALSE,AES_128bit,NO,https://owletcare.com/products/cam,"Lots of articles about camera being hacked
+e.g. 
+https://www.reddit.com/r/beyondthebump/comments/13ln4n6/mans_voice_over_owlet_camera/ "
+3,babymonitor,VTech,DM111,FALSE,FALSE,FALSE,FALSE,N/A,N/A,N/A,N/A,https://www.amazon.com/VTech-Rechargeable-Guaranteed-Transmissions-Cystal-Clear/dp/B00JEV5UI8?th=1,Not enough information
