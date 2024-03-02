@@ -1,5 +1,9 @@
 package com.example.int20h.service;
 
+import android.content.Context;
+import android.content.res.Resources;
+
+import com.example.int20h.R;
 import com.example.int20h.model.Device;
 import com.example.int20h.parser.ReadingCSVFile;
 import com.example.int20h.repository.DeviceRepository;
@@ -10,23 +14,16 @@ import java.util.Optional;
 
 public class DeviceService {
     private DeviceRepository deviceRepository;
-    private static final String DEFAULT_DEVICES_FILE_PATH = "app/src/main/res/babymonitors.csv";
+    private Context context;
 
-
-    public DeviceService(DeviceRepository deviceRepository) {
+    public DeviceService(Context context, DeviceRepository deviceRepository) {
         this.deviceRepository = deviceRepository;
-        List<Device> devices = new ArrayList<>();
-        devices.add(new Device(1L, "type1", "brand1", "model1", true, true, true, true, "Base64", true, "encrypt1", true, "url1", "comments"));
-        devices.add(new Device(2L, "type2", "brand2", "model2", true, true, true, true, "Base64", true, "encrypt1", true, "url1", "comments"));
-        devices.add(new Device(3L, "type1", "brand2", "model2", true, true, true, true, "Base64", true, "encrypt1", true, "url1", "comments"));
-        devices.add(new Device(4L, "type2", "brand1", "model2", true, true, true, true, "Base64", true, "encrypt1", true, "url1", "comments"));
-        deviceRepository.addAll(devices);
-        // TODO: implement parsing
-        //setUpRepo();
+        this.context = context;
+        setUpRepo();
     }
 
     private void setUpRepo() {
-        ReadingCSVFile parser = new ReadingCSVFile(DEFAULT_DEVICES_FILE_PATH);
+        ReadingCSVFile parser = new ReadingCSVFile(context, R.raw.babymonitors);
         List<Device> devices = parser.getParsedList();
         deviceRepository.addAll(devices);
     }

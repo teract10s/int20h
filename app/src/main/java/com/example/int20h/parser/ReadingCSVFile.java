@@ -1,7 +1,11 @@
 package com.example.int20h.parser;
 
-import java.io.File;
+import android.content.Context;
+import android.content.res.Resources;
+
 import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,24 +13,25 @@ import com.example.int20h.model.Device;
 import com.opencsv.CSVReader;
 
 public class ReadingCSVFile {
-	
-	private final String filePath;
 
-	public ReadingCSVFile(String filePath) {
-		this.filePath = filePath;
+	private final InputStream inputStream;
+
+	public ReadingCSVFile(Context context, int resourceId) {
+		Resources resources = context.getResources();
+		inputStream = resources.openRawResource(resourceId);
 	}
 
 	public List<Device> getParsedList() {
 		List<Device> deviceList = new LinkedList<>();
 		try {
 			String[] fileLines;
-			CSVReader csvReader = new CSVReader(new FileReader(filePath));
+			CSVReader csvReader = new CSVReader(new InputStreamReader(inputStream));
 			csvReader.skip(1);
 			while ((fileLines = csvReader.readNext()) != null) {
 				deviceList.add(deviceInitialization(fileLines));
 			}
 		} catch (Exception e) {
-			throw new RuntimeException("Can't parse file: " + filePath, e);
+			throw new RuntimeException("Can't parse file", e);
 		}
 		return deviceList;
 	}
