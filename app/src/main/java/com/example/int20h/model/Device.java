@@ -2,18 +2,55 @@ package com.example.int20h.model;
 
 public class Device {
     private Long id;
+
     private String type;
+
     private String brand;
+
     private String model;
+
     private boolean videoSharing;
+
     private boolean wifi;
-    private boolean frequency245;
+
+    private boolean frequency24;
+
+    private boolean frequency5;
+
     private String securityProtocol;
+
     private boolean privacyShutter;
+
     private String encryption;
+
     private boolean isSecure;
+
     private String url;
+
     private String comments;
+
+    public Device() {
+    }
+
+    public Device(Long id, String type, String brand, String model,
+                  boolean videoSharing, boolean wifi, boolean frequency24,
+                  boolean frequency5, String securityProtocol, boolean privacyShutter,
+                  String encryption, boolean isSecure, String url, String comments) {
+        this.id = id;
+        this.type = type;
+        this.brand = brand;
+        this.model = model;
+        this.videoSharing = videoSharing;
+        this.wifi = wifi;
+        this.frequency24 = frequency24;
+        this.frequency5 = frequency5;
+        this.securityProtocol = securityProtocol;
+        this.privacyShutter = privacyShutter;
+        this.encryption = encryption;
+        this.isSecure = isSecure;
+        this.url = url;
+        this.comments = comments;
+    }
 
     public Long getId() {
         return id;
@@ -63,12 +100,20 @@ public class Device {
         this.wifi = wifi;
     }
 
-    public boolean isFrequency245() {
-        return frequency245;
+    public boolean isFrequency24() {
+        return frequency24;
     }
 
-    public void setFrequency245(boolean frequency245) {
-        this.frequency245 = frequency245;
+    public void setFrequency24(boolean frequency24) {
+        this.frequency24 = frequency24;
+    }
+
+    public boolean isFrequency5() {
+        return frequency5;
+    }
+
+    public void setFrequency5(boolean frequency5) {
+        this.frequency5 = frequency5;
     }
 
     public String getSecurityProtocol() {
