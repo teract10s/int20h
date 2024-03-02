@@ -2,8 +2,6 @@ package com.example.int20h
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Adapter
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
@@ -18,11 +16,21 @@ class MainActivity : AppCompatActivity() {
 
         val deviceService = DeviceService(applicationContext, DeviceRepositoryListImpl())
         val typeItems = deviceService.types
-        val autoComplete : AutoCompleteTextView = findViewById(R.id.auto_complete)
+        val typeTextView : AutoCompleteTextView = findViewById(R.id.typeTextView)
         val typeAdapter = ArrayAdapter(this,R.layout.list_item,typeItems)
 
-        autoComplete.setAdapter(typeAdapter)
-        autoComplete.onItemClickListener = AdapterView.OnItemClickListener {
+        typeTextView.setAdapter(typeAdapter)
+        typeTextView.onItemClickListener = AdapterView.OnItemClickListener {
+                adapterView, view, i, l ->
+            val itemSelected = adapterView.getItemAtPosition(i)
+            Toast.makeText(this, "Item: $itemSelected", Toast.LENGTH_SHORT).show()
+        }
+
+        val brandItems = deviceService.types
+        val brandAdapter = ArrayAdapter(this,R.layout.list_item,brandItems)
+        val brandTextView : AutoCompleteTextView = findViewById(R.id.brandTextView)
+        brandTextView.setAdapter(brandAdapter)
+        brandTextView.onItemClickListener = AdapterView.OnItemClickListener {
                 adapterView, view, i, l ->
             val itemSelected = adapterView.getItemAtPosition(i)
             Toast.makeText(this, "Item: $itemSelected", Toast.LENGTH_SHORT).show()

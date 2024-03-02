@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <AutoCompleteTextView
-            android:id="@+id/auto_complete"
+            android:id="@+id/typeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Оберіть тип"
@@ -85,7 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <AutoCompleteTextView
-            android:id="@+id/auto_complete2"
+            android:id="@+id/brandTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Оберіть виробника"
