@@ -13,4 +13,6 @@ public interface DeviceRepository {
     boolean addAll(List<Device> devices);
 
     boolean add(Device device);
+
+    Optional<Device> getDeviceByTypeBrandModel(String type, String brand, String model);
 }
