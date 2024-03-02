@@ -36,12 +36,20 @@ public class DeviceService {
         return deviceRepository.getTypes();
     }
 
+    public List<String> getBrands() {
+        return deviceRepository.getBrands();
+    }
+
     public List<String> getBrandsByType(String type) {
         return deviceRepository.getBrandsByType(type);
     }
 
     public List<String> getModelsByBrand(String brand) {
         return deviceRepository.getModelsByBrand(brand);
+    }
+
+    public List<String> getModels() {
+        return deviceRepository.getModels();
     }
 
     public boolean addAll(List<Device> devices) {

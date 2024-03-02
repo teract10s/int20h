@@ -50,6 +50,22 @@ public class DeviceRepositoryListImpl implements DeviceRepository {
     }
 
     @Override
+    public List<String> getBrands() {
+        return devices.stream()
+                .map(Device::getBrand)
+                .distinct()
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> getModels() {
+        return devices.stream()
+                .map(Device::getModel)
+                .distinct()
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public List<String> getBrandsByType(String type) {
         return devices.stream()
                 .filter(d -> d.getType().equals(type))

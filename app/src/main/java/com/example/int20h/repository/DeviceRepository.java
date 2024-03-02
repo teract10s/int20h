@@ -18,6 +18,10 @@ public interface DeviceRepository {
 
     List<String> getTypes();
 
+    List<String> getBrands();
+
+    List<String> getModels();
+
     List<String> getBrandsByType(String type);
 
     List<String> getModelsByBrand(String brand);

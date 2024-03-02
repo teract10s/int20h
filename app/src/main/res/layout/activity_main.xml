@@ -71,7 +71,7 @@
             android:id="@+id/typeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Оберіть тип"
+            android:hint="Choose type"
             android:inputType="none" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,7 +88,24 @@
             android:id="@+id/brandTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Оберіть виробника"
+            android:hint="Choose brand"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="548dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <AutoCompleteTextView
+            android:id="@+id/modelTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Choose model"
             android:inputType="none" />
     </com.google.android.material.textfield.TextInputLayout>
 
