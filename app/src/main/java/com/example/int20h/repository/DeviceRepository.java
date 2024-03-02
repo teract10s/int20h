@@ -15,4 +15,10 @@ public interface DeviceRepository {
     boolean add(Device device);
 
     Optional<Device> getDeviceByTypeBrandModel(String type, String brand, String model);
+
+    List<String> getTypes();
+
+    List<String> getBrandsByType(String type);
+
+    List<String> getModelsByBrand(String brand);
 }
