@@ -1,12 +1,15 @@
 package com.example.int20h.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Button
 import android.widget.Toast
+import androidx.compose.material3.Button
 import com.example.int20h.R
 import com.example.int20h.repository.DeviceRepositoryListImpl
 import com.example.int20h.service.DeviceService
@@ -54,6 +57,12 @@ class DeviceActivity : AppCompatActivity() {
                 adapterView, _, i, _ ->
             val itemSelected = adapterView.getItemAtPosition(i)
             Toast.makeText(this, "Item: $itemSelected", Toast.LENGTH_SHORT).show()
+        }
+
+        val ItemActivButton = findViewById<Button>(R.id.secondActButton)
+        ItemActivButton.setOnClickListener {
+            val Intent = Intent(this, ItemInformation::class.java)
+            startActivity(Intent)
         }
 
 
