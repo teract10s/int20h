@@ -14,7 +14,6 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     fun buttonClick(view: View?){
-        Log.d("WelcomeActivity", "Button Clicked")
         val intent = Intent(this, DeviceActivity::class.java)
         startActivity(intent)
     }

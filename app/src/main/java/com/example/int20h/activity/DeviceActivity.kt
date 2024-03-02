@@ -68,7 +68,6 @@ class DeviceActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
             } else {
-
                 val intent = Intent(this, NotFoundDeviceActivity::class.java)
                 startActivity(intent)
             }
