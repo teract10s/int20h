@@ -54,9 +54,9 @@ class MainActivity : AppCompatActivity() {
             val itemSelected = adapterView.getItemAtPosition(i)
             Toast.makeText(this, "Item: $itemSelected", Toast.LENGTH_SHORT).show()
         }
+
+
     }
 
-    fun buttonClick(view: View?){
-        println("your item is ")
-    }
+
 }
