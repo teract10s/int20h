@@ -6,11 +6,14 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.int20h.R
+import com.example.int20h.model.Device
 import com.example.int20h.repository.DeviceRepositoryListImpl
 import com.example.int20h.service.DeviceService
+import java.util.Optional
 
 class DeviceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,8 +60,13 @@ class DeviceActivity : AppCompatActivity() {
             }
 
         val itemActiveButton = findViewById<Button>(R.id.secondActButton)
+        val editText = findViewById<EditText>(R.id.editTextText)
         itemActiveButton.setOnClickListener {
-            val device = deviceService.getByModel(modelTextView.text.toString())
+            val device: Optional<Device> = if (editText.text.toString().isNotEmpty()) {
+                deviceService.getByModel(editText.text.toString())
+            } else {
+                deviceService.getByModel(modelTextView.text.toString())
+            }
             if (device.isPresent) {
                 if (device.get().isSecure) {
                     val intent = Intent(this, ItemInformation::class.java)
