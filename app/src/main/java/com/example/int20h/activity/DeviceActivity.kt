@@ -14,7 +14,7 @@ import com.example.int20h.service.DeviceService
 class DeviceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_device)
         val deviceService = DeviceService(applicationContext, DeviceRepositoryListImpl())
 
         val typeItems = deviceService.types
