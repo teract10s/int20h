@@ -25,4 +25,6 @@ public interface DeviceRepository {
     List<String> getBrandsByType(String type);
 
     List<String> getModelsByBrand(String brand);
+
+    Optional<Device> getByModel(String model);
 }

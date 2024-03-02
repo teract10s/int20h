@@ -82,4 +82,11 @@ public class DeviceRepositoryListImpl implements DeviceRepository {
                 .distinct()
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public Optional<Device> getByModel(String model) {
+        return devices.stream()
+                .filter(d -> d.getModel().equals(model))
+                .findFirst();
+    }
 }

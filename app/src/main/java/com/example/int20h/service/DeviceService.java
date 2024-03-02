@@ -55,4 +55,8 @@ public class DeviceService {
     public boolean addAll(List<Device> devices) {
         return deviceRepository.addAll(devices);
     }
+
+    public Optional<Device> getByModel(String model) {
+        return deviceRepository.getByModel(model);
+    }
 }

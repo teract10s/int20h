@@ -1,14 +1,13 @@
 package com.example.int20h.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.int20h.R
 import com.example.int20h.repository.DeviceRepositoryListImpl
 import com.example.int20h.service.DeviceService
@@ -23,49 +22,56 @@ class DeviceActivity : AppCompatActivity() {
         var brandItems = deviceService.brands
         var modelItems = deviceService.models
 
-        val brandTextView : AutoCompleteTextView = findViewById(R.id.brandTextView)
-        var brandAdapter = ArrayAdapter(this, R.layout.list_item,brandItems)
-        val modelTextView : AutoCompleteTextView = findViewById(R.id.modelTextView)
-        var modelAdapter = ArrayAdapter(this, R.layout.list_item,modelItems)
+        val brandTextView: AutoCompleteTextView = findViewById(R.id.brandTextView)
+        var brandAdapter = ArrayAdapter(this, R.layout.list_item, brandItems)
+        val modelTextView: AutoCompleteTextView = findViewById(R.id.modelTextView)
+        var modelAdapter = ArrayAdapter(this, R.layout.list_item, modelItems)
 
-        val typeTextView : AutoCompleteTextView = findViewById(R.id.typeTextView)
-        val typeAdapter = ArrayAdapter(this, R.layout.list_item,typeItems)
+        val typeTextView: AutoCompleteTextView = findViewById(R.id.typeTextView)
+        val typeAdapter = ArrayAdapter(this, R.layout.list_item, typeItems)
 
         typeTextView.setAdapter(typeAdapter)
-        typeTextView.onItemClickListener = AdapterView.OnItemClickListener {
-                adapterView, _, i, _ ->
+        typeTextView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, _, i, _ ->
             val itemSelected = adapterView.getItemAtPosition(i)
             Toast.makeText(this, "Item: $itemSelected", Toast.LENGTH_SHORT).show()
             brandItems = deviceService.getBrandsByType(itemSelected.toString())
-            brandAdapter = ArrayAdapter(this, R.layout.list_item,brandItems)
+            brandAdapter = ArrayAdapter(this, R.layout.list_item, brandItems)
             brandTextView.setAdapter(brandAdapter)
         }
 
         brandTextView.setAdapter(brandAdapter)
-        brandTextView.onItemClickListener = AdapterView.OnItemClickListener {
-                adapterView, _, i, _ ->
-            val itemSelected = adapterView.getItemAtPosition(i)
-            Toast.makeText(this, "Item: $itemSelected", Toast.LENGTH_SHORT).show()
-            modelItems = deviceService.getModelsByBrand(itemSelected.toString())
-            modelAdapter = ArrayAdapter(this, R.layout.list_item,modelItems)
-            modelTextView.setAdapter(modelAdapter)
-        }
+        brandTextView.onItemClickListener =
+            AdapterView.OnItemClickListener { adapterView, _, i, _ ->
+                val itemSelected = adapterView.getItemAtPosition(i)
+                Toast.makeText(this, "Item: $itemSelected", Toast.LENGTH_SHORT).show()
+                modelItems = deviceService.getModelsByBrand(itemSelected.toString())
+                modelAdapter = ArrayAdapter(this, R.layout.list_item, modelItems)
+                modelTextView.setAdapter(modelAdapter)
+            }
 
         modelTextView.setAdapter(modelAdapter)
-        modelTextView.onItemClickListener = AdapterView.OnItemClickListener {
-                adapterView, _, i, _ ->
-            val itemSelected = adapterView.getItemAtPosition(i)
-            Toast.makeText(this, "Item: $itemSelected", Toast.LENGTH_SHORT).show()
+        modelTextView.onItemClickListener =
+            AdapterView.OnItemClickListener { adapterView, _, i, _ ->
+                val itemSelected = adapterView.getItemAtPosition(i)
+                Toast.makeText(this, "Item: $itemSelected", Toast.LENGTH_SHORT).show()
+            }
+
+        val itemActiveButton = findViewById<Button>(R.id.secondActButton)
+        itemActiveButton.setOnClickListener {
+            val device = deviceService.getByModel(modelTextView.text.toString())
+            if (device.isPresent) {
+                if (device.get().isSecure) {
+                    val intent = Intent(this, ItemInformation::class.java)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(this, NotSecureDeviceActivity::class.java)
+                    startActivity(intent)
+                }
+            } else {
+
+                val intent = Intent(this, NotFoundDeviceActivity::class.java)
+                startActivity(intent)
+            }
         }
-
-        val ItemActivButton = findViewById<Button>(R.id.secondActButton)
-        ItemActivButton.setOnClickListener {
-            val Intent = Intent(this, ItemInformation::class.java)
-            startActivity(Intent)
-        }
-
-
     }
-
-
 }
