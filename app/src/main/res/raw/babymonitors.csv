@@ -3,4 +3,4 @@ ID,Device_type,Device_brand,Device_model,Video,WiFi,2.4GHz,5GHz,Security_Protoco
 2,babymonitor,‎Owlet,Cam 1,TRUE,TRUE,TRUE,FALSE,TLS,FALSE,AES_128bit,NO,https://owletcare.com/products/cam,"Lots of articles about camera being hacked
 e.g. 
 https://www.reddit.com/r/beyondthebump/comments/13ln4n6/mans_voice_over_owlet_camera/ "
-3,фівафа,VTech,DM111,FALSE,FALSE,FALSE,FALSE,N/A,N/A,N/A,N/A,https://www.amazon.com/VTech-Rechargeable-Guaranteed-Transmissions-Cystal-Clear/dp/B00JEV5UI8?th=1,Not enough information
+3,babymonitor,VTech,DM111,FALSE,FALSE,FALSE,FALSE,N/A,N/A,N/A,N/A,https://www.amazon.com/VTech-Rechargeable-Guaranteed-Transmissions-Cystal-Clear/dp/B00JEV5UI8?th=1,Not enough information
