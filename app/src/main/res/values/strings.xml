@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">int20h</string>
-    <string name="item_label">Items</string>
+    <string name="item_label">Items</string> //тип бренд модель
 </resources>
