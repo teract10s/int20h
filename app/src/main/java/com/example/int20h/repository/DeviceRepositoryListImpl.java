@@ -31,4 +31,12 @@ public class DeviceRepositoryListImpl implements DeviceRepository {
     public boolean add(Device device) {
         return devices.add(device);
     }
+
+    @Override
+    public Optional<Device> getDeviceByTypeBrandModel(String type, String brand, String model) {
+        return devices.stream()
+                .filter(d ->
+                    d.getBrand().equals(brand) && d.getType().equals(type) && d.getModel().equals(model))
+                .findFirst();
+    }
 }
