@@ -2,6 +2,7 @@ package com.example.int20h
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
@@ -53,5 +54,9 @@ class MainActivity : AppCompatActivity() {
             val itemSelected = adapterView.getItemAtPosition(i)
             Toast.makeText(this, "Item: $itemSelected", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun buttonClick(view: View?){
+        println("your item is ")
     }
 }
