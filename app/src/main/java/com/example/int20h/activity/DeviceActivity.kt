@@ -13,6 +13,7 @@ import com.example.int20h.R
 import com.example.int20h.model.Device
 import com.example.int20h.repository.DeviceRepositoryListImpl
 import com.example.int20h.service.DeviceService
+import com.example.int20h.util.CurrentDevice
 import java.util.Optional
 
 class DeviceActivity : AppCompatActivity() {
@@ -62,14 +63,16 @@ class DeviceActivity : AppCompatActivity() {
         val itemActiveButton = findViewById<Button>(R.id.secondActButton)
         val editText = findViewById<EditText>(R.id.editTextText)
         itemActiveButton.setOnClickListener {
-            val device: Optional<Device> = if (editText.text.toString().isNotEmpty()) {
+            val deviceOpt: Optional<Device> = if (editText.text.toString().isNotEmpty()) {
                 deviceService.getByModel(editText.text.toString())
             } else {
                 deviceService.getByModel(modelTextView.text.toString())
             }
-            if (device.isPresent) {
-                if (device.get().isSecure) {
-                    val intent = Intent(this, ItemInformation::class.java)
+            if (deviceOpt.isPresent) {
+                val device = deviceOpt.get()
+                CurrentDevice.setDevice(device)
+                if (device.isSecure) {
+                    val intent = Intent(this, SecureDeviceActivity::class.java)
                     startActivity(intent)
                 } else {
                     val intent = Intent(this, NotSecureDeviceActivity::class.java)

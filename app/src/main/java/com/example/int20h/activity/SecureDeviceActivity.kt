@@ -4,16 +4,18 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
 import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.int20h.R
 import com.example.int20h.util.CurrentDevice
 
-class NotSecureDeviceActivity : AppCompatActivity() {
+class SecureDeviceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_not_secure_device)
+        setContentView(R.layout.activity_secure_device)
         val device = CurrentDevice.getDevice()
         val model = findViewById<TextView>(R.id.deviceName)
         model.text = device.model
@@ -25,13 +27,7 @@ class NotSecureDeviceActivity : AppCompatActivity() {
     }
 
     fun moreInfoButtonClick(view: View?){
-        val intent = Intent(this, NotSecureMoreInfoDeviceActivity::class.java)
-        startActivity(intent)
-    }
-
-    fun dataLeaksButtonClick(view: View?){
-        val url = CurrentDevice.getDevice().url
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        val intent = Intent(this, SecureDeviceMoreInfoActivity::class.java)
         startActivity(intent)
     }
 }

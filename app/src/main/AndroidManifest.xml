@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Int20h"
         tools:targetApi="31">
         <activity
-            android:name=".activity.ItemInformation"
+            android:name=".activity.SecureDeviceActivity"
             android:exported="false" />
         <activity
             android:name=".activity.WelcomeActivity"
@@ -46,6 +46,26 @@
         </activity>
         <activity
             android:name=".activity.NotFoundDeviceActivity"
+            android:exported="true"
+            android:label="Not found device">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.NotSecureMoreInfoDeviceActivity"
+            android:exported="true"
+            android:label="Not found device">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.SecureDeviceMoreInfoActivity"
             android:exported="true"
             android:label="Not found device">
             <intent-filter>
