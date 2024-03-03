@@ -17,6 +17,8 @@ import com.example.int20h.util.CurrentDevice
 import java.util.Optional
 
 class DeviceActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_device)
@@ -83,5 +85,7 @@ class DeviceActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+
+
     }
 }
